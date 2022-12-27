@@ -1,0 +1,29 @@
+import java.io.*;
+import java.net.*;
+
+public class TcpClient {
+    public static void main(String args[]) throws Exception {
+        Socket socket = new Socket("localhost", 6666);
+        DataInputStream ri = new DataInputStream(socket.getInputStream());
+        DataOutputStream wo = new DataOutputStream(socket.getOutputStream());
+        Scanner sc = new Scanner(System.in);
+        String s = "";
+        BufferedReader r;
+        try {
+            r = new BufferedReader(new FileReader("Desktop/java/def.txt"));
+            String l = r.readLine();
+            while (l != null) {
+                s = s + l + "\n";
+                l = r.readLine();
+            }
+            r.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        wo.writeUTF(s);
+        socket.close();
+        ri.close();
+        wo.close();
+        sc.close();
+    }
+}

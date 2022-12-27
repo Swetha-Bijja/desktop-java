@@ -1,0 +1,33 @@
+import java.util.*;
+class new{
+static String constructPalin(char []str, int len){
+    int j = len - 1;
+    for (int i=0; i < j; i++, j--){
+        if (str[i] == str[j] && str[i] != '#')
+            continue;
+        else if (str[i] == str[j] && str[i] == '#'){
+            str[i] = 'a';
+            str[j] = 'a';
+            continue;
+        }
+        else if (str[i] == '#'){
+            str[i] = str[j];
+            continue;
+        }
+        else if (str[j] == '#'){
+            str[j] = str[i];
+            continue;
+        }
+        System.out.println("Invalid");
+        return "";
+    }
+    return String.valueOf(str);
+}
+public static void main(String[] args)
+{
+    Scannersc = new Scanner(System.in);
+    String str = sc.next();
+    int len = str.length();
+    System.out.println(constructPalin(str.toCharArray(), len));
+}
+}
