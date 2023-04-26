@@ -15,8 +15,7 @@ class IoVec {
 
 public class readv {
     public static void main(String args[]){
-        try{
-            try {
+            try{
                 // Create a new socket and connect it to the peer
                 int sockfd = Socket.createSocket();
                 InetAddress addr = InetAddress.getByName("www.example.com");
@@ -36,12 +35,10 @@ public class readv {
                         System.out.println("Data read: " + ret + " bytes");
                     }
                 }
-            } catch (SocketException e) {
+            } 
+            catch (SocketException e) {
                 e.printStackTrace();
             } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-        }
+                e.printStackTrace();}
     }
 }
